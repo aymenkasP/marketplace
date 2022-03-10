@@ -7,7 +7,7 @@ export default function Chat() {
 
     
   return (
-    <div>
+    <div >
         <ChatEngine
         projectID={projectID}
         userName={user.email}
