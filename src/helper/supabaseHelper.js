@@ -63,7 +63,6 @@ export async function updateProfile(username, avatar_url, PhoneNumber ) {
 
 export async function updateProduct(data) {
   try {
-    const user = supabase.auth.user();
 
     const updates = {
       ...data,
