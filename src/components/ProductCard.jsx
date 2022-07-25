@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { downloadImage } from "../helper/supabaseHelper";
+import LoadingSpinier from "./LoadingSpiner";
 
 export default function ProductCard({ id, Image, title, price, condition }) {
   const [ProductImage, setProductImage] = useState("");
@@ -39,7 +40,9 @@ export default function ProductCard({ id, Image, title, price, condition }) {
   return (
     <StyledProductCardBody to={`/product/${id}?title=${slugify(title)}`}>
       <StyledImageContainer>
-        <Img loading="lazy" alt={title} src={ProductImage} />
+        {
+        ProductImage ?   <Img loading="lazy" alt={title} src={ProductImage} /> : <LoadingSpinier />  
+        }
       </StyledImageContainer>
       <div>
         <StyledCondition>{condition}</StyledCondition>
@@ -64,7 +67,6 @@ const StyledProductCardBody = styled(Link)`
 `;
 const StyledImageContainer = styled.div`
   /*  height: 100%; */
-  display: flex;
 `;
 const Img = styled.img`
   display: flex;
@@ -81,6 +83,7 @@ const StyledProductTitle = styled.h2`
   color: black;
   text-transform: capitalize;
   margin: 1rem 0;
+  font-size: 1.1rem;
 `;
 const StyledPrice = styled.h2`
   color: #2bd11c;

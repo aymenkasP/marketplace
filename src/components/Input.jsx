@@ -28,6 +28,7 @@ export default function TheInput({
 const StyledInput = styled.input`
   width: ${(props) => props.width || "auto"};
   padding: 12px;
+  margin-top: 0.3rem;
   font-size: 16px;
   border: none;
   border-bottom: 1px solid #fff;

@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 
 export default function ProductsSection({ Data }) {
   
-  if (Data === null) return <LoadingSpinier />;
+  if (Data === null) return <StyledSpinierContainer> <LoadingSpinier /> </StyledSpinierContainer>;
   if (Data?.length === 0) return <p>No products</p>;
 
   return (
@@ -33,3 +33,8 @@ const StyledProductsContainer = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
 `;
+  const StyledSpinierContainer = styled.div`
+    div {
+      height: 80vh;
+    }
+  `;
